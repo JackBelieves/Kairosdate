@@ -1,19 +1,65 @@
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
+const sparkPalette = {
 
-export default {
+  purpleSubdued: '#F3F0FF',
+  green: '#0b9f73',
+  pink: '#E0479E',
+  blue: '#00B4D8',
+  red: '#FF3D4D',
+  yellow: '#FFEF3D',
+  grey: '#717171',
+  highlight_grey: '#373737',
+  dark_gray: '#808080',
+  icon_grey: '#AEAEAE',
+  light_grey: '#EDEBEB',
+  light_blue: '#9BBEFF',
+  background: '#F8F6F6',
+  textPrimary: '#121212',
+  textSecondary: '#6B7280',
+  card: '#FFFFFF',
+  cardHighlight: '#E6F0FF',
+  border: '#E5E7EB',
+  accent: '#10B981',             // Green for success highlights
+  danger: '#EF4444', 
+};
+
+
+export const Colors= {
+  palette: sparkPalette,
+
   light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
+    text: sparkPalette.textPrimary,
+    background: sparkPalette.background,
+    tabIconDefault: sparkPalette.highlight_grey,
+    tabIconSelected: sparkPalette.icon_grey,
+    primary:sparkPalette.textPrimary,
+    primaryButtonText:'#FFF',
+    secondary:sparkPalette.light_grey,
+    secondaryButtonText:sparkPalette.textPrimary,
+    subdued: sparkPalette.icon_grey,
+    cardBackground: '#FFF',
+    navBackground: sparkPalette.textPrimary,
+    tintDark: sparkPalette.grey,
+    tintLight: sparkPalette.card,
+    caption:sparkPalette.grey,
+    border:sparkPalette.border,
+    error:sparkPalette.danger,
   },
   dark: {
     text: '#fff',
     background: '#000',
-    tint: tintColorDark,
     tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
+    tabIconSelected:  sparkPalette.icon_grey,
+    primary:sparkPalette.textPrimary,
+    primaryButtonText:'#FFF',
+    secondary:sparkPalette.blue,
+    secondaryButtonText:sparkPalette.textPrimary,
+    subdued: sparkPalette.icon_grey,
+    cardBackground: '#FFF',
+    navBackground: sparkPalette.textPrimary,
+    tintDark: sparkPalette.grey,
+    tintLight: sparkPalette.card,
+    caption:sparkPalette.dark_gray,
+    border:sparkPalette.border,
+    error:sparkPalette.danger,
   },
 };

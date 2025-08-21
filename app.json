@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "faithspark_app",
-    "slug": "faithspark_app",
+    "name": "Kairos",
+    "slug": "kairos",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "faithsparkapp",
+    "scheme": "kairos",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -21,18 +21,32 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.kairos.faithspark_app"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "plugins": [
-      "expo-router"
+      "expo-router",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "077a4047-9eeb-4a9b-85d1-3595415bb97f"
+      }
+    },
+    "owner": "anilasj"
   }
 }
