@@ -14,7 +14,14 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anilasj.kairos",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -22,7 +29,8 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.kairos.faithspark_app"
+      "package": "com.kairos.faithspark_app",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "bundler": "metro",
@@ -43,10 +51,17 @@
     },
     "extra": {
       "router": {},
+      "env": {
+        "API_URL": "https://kairos-api-265535909839.us-central1.run.app",
+        "API_KEY": "SPARK_ALP25"
+      },
       "eas": {
-        "projectId": "077a4047-9eeb-4a9b-85d1-3595415bb97f"
+        "projectId": "f823f69a-ffc1-4d98-b356-fac43dc07bb1"
       }
     },
-    "owner": "anilasj"
+    "owner": "anilasj",
+    "updates": {
+      "url": "https://u.expo.dev/f823f69a-ffc1-4d98-b356-fac43dc07bb1"
+    }
   }
 }

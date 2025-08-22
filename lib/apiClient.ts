@@ -1,10 +1,22 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Platform } from "react-native";
 import { router } from "expo-router";
+import Constants from 'expo-constants';
 
 // lib/apiClient.ts
-export const API_URL = Platform.OS === 'android' ? 'http://10.0.2.2:8010/api/v1' : 'http://localhost:8010/api/v1';
+const isLocalDev =
+  Constants.expoConfig?.extra?.env === 'development' ||
+  __DEV__; // __DEV__ is true in dev mode
+
+const API_URL = isLocalDev
+  ? Platform.OS === 'android'
+    ? 'http://10.0.2.2:8010/api/v1'
+    : 'http://localhost:8010/api/v1'
+  : 'https://kairos-api-265535909839.us-central1.run.app/api/v1';
+
+//export const API_URL = Platform.OS === 'android' ? 'http://10.0.2.2:8010/api/v1' : 'http://localhost:8010/api/v1';
 const API_KEY = 'SPARK_ALP25';
+export { API_URL, API_KEY };
 
 type HeadersOptions = {
   auth?: string | null; // token

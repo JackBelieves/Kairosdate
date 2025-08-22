@@ -25,7 +25,7 @@ import { post, put } from '@/lib/apiClient';
 const { height: windowHeight } = Dimensions.get('window');
 
 
-export default function SovraOnboardingChat() {
+export default function OnboardingChat() {
   const scheme = useColorScheme();
   const theme = Colors[scheme ?? 'light'];
   const typography = getTypography(scheme ?? 'light');
@@ -261,45 +261,7 @@ Now, I talk to a lot of humans… how do you want me to show up for you?`,
   const isNumberInput = currentQuestion?.type === 'number';
   const isPillInput = currentQuestion?.type === 'pills';
 
-  const useAiSearch = async (answers) => {
-    const token = await AsyncStorage.getItem('userToken'); // or however you store it
-    if (!token){
-        router.push("/signin")
-        return;
-    }
-    const zip = await AsyncStorage.getItem('userZip');
-    await put('/health-profile', answers, token);
-    
-    const response = await post('/doctors/search/ai', {
-            user_input: 'Help me find a care team built for me.',   
-            zip_code: zip,
-            search_id: searchId,
-    }, token);
-    
-    setSearchId(response.search_id || 'new');
-
-    if (response.clarification_questions?.length > 0) {
-        const combined = response.clarification_questions.join('\n');
-            setHistory((prev) => [...prev, { type: 'question', text: combined }]);
-        setClarificationMode(true);
-        setClarificationQuestions(response.clarification_questions);
-        setLoading(true)
-    } else {
-        if (response.results?.length > 0) {
-             setClarificationMode(true);
-             await put('/user',{onboard_status: "complete"}, token)
-            router.push({
-                pathname: '/(modals)/personalized-insights',
-                params: {
-                doctorResults: JSON.stringify(response.results),
-                next: '/dashboard',
-                }
-            });
-        } else {
-        setHistory(prev => [...prev, { type: 'clarify', text: 'Sorry, we couldn’t find matches just yet.' }]);
-        }
-    }
-  };
+  
 
   const saveAnswers = async () => {
     const token = await AsyncStorage.getItem('userToken'); 
